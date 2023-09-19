@@ -4,6 +4,6 @@ import TheWelcome from '../components/TheWelcome.vue'
 
 <template>
   <main>
-    <TheWelcome />
+    <TheWelcome msg="Premier test, affichage de variables" />
   </main>
 </template>
