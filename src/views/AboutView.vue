@@ -7,4 +7,3 @@ import TheAbout from '../components/TheAbout.vue'
     <TheAbout msg="Second test, boucles et tests" />
   </main>
 </template>
-nvm
