@@ -1,15 +1,9 @@
-<template>
-  <div class="about">
-    <h2>Second test, boucles et tests</h2>
-  </div>
-</template>
+<script setup>
+import TheAbout from '../components/TheAbout.vue'
+</script>
 
-<style>
-@media (min-width: 1024px) {
-  .about {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-  }
-}
-</style>
+<template>
+  <main>
+    <TheAbout msg="Second test, boucles et tests" />
+  </main>
+</template>
