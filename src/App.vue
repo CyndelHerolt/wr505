@@ -2,10 +2,6 @@
 import { RouterLink, RouterView } from 'vue-router'
 import HelloWorld from './components/HelloWorld.vue'
 
-const symfony = 18
-const integration = 16
-const reseau = 13
-
 </script>
 
 <template>
@@ -13,7 +9,7 @@ const reseau = 13
     <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
 
     <div class="wrapper">
-      <HelloWorld msg="You did it!" />
+      <HelloWorld msg="wr505 | Developpement front avancé" />
 
       <nav>
         <RouterLink to="/">Home</RouterLink>
