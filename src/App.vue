@@ -1,6 +1,11 @@
 <script setup>
 import { RouterLink, RouterView } from 'vue-router'
 import HelloWorld from './components/HelloWorld.vue'
+
+const symfony = 18
+const integration = 16
+const reseau = 13
+
 </script>
 
 <template>
