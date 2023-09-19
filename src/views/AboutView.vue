@@ -1,6 +1,6 @@
 <template>
   <div class="about">
-    <h1>This is an about page</h1>
+    <h2>Second test, boucles et tests</h2>
   </div>
 </template>
 
