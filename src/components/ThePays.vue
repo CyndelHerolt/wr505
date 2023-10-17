@@ -1,7 +1,10 @@
 <script setup>
-import { onMounted, ref } from 'vue'
+import {onMounted, ref} from 'vue'
 import axios from 'axios'
 import CardPays from "../components/CardPays.vue";
+import { useRouter } from 'vue-router'
+const router = useRouter()
+
 
 let data = ref('')
 const recherche = ref('')
@@ -19,12 +22,17 @@ onMounted(async () => {
   data.value = response.data
   dataAll.value = data.value;
 })
+
 function filter() {
-  data.value = dataAll.value.filter(pays =>
-      {
+  data.value = dataAll.value.filter(pays => {
         return pays.name.common.toLowerCase().startsWith(recherche.value.toLowerCase())
       }
   )
+}
+
+function goToPays(e) {
+  console.log('coucou')
+  router.push(`/fiche-pays/${e.target.value}`)
 }
 
 </script>
@@ -35,18 +43,22 @@ function filter() {
 
   <hr>
 
-  <label for="recherche">Rechercher un pays</label>
-  <input v-model="recherche" @keyup="filter" type="text">
+    <label for="recherche">Rechercher un pays</label>
+    <input v-model="recherche" @keyup="filter" type="text">
   <!--    <p>Message is: {{ recherche }}</p>-->
-<!--  <button @click="filter">Filtrer</button>-->
+  <!--  <button @click="filter">Filtrer</button>-->
 
-<!--  <h2>Liste de 10 pays</h2>-->
-<!--  <ul>-->
-<!--    <li v-for=" indice in 10">-->
-<!--      pays numéro {{ indice }}-->
-<!--      <RouterLink v-bind:to="'/fichepays/'+indice">complément d'info</RouterLink>-->
-<!--    </li>-->
-<!--  </ul>-->
+  <!--  <h2>Liste de 10 pays</h2>-->
+  <!--  <ul>-->
+  <!--    <li v-for=" indice in 10">-->
+  <!--      pays numéro {{ indice }}-->
+  <!--      <RouterLink v-bind:to="'/fichepays/'+indice">complément d'info</RouterLink>-->
+  <!--    </li>-->
+  <!--  </ul>-->
+
+  <select @change="goToPays">
+    <option v-for="pays in data" :key="pays.name.common" :value="pays.name.common">{{ pays.name.common }}</option>
+  </select>
 
   <ul v-for="pays in data">
     <card-pays :pays="pays.name.common" :image="pays.flags.svg" :datapays="pays"/>
